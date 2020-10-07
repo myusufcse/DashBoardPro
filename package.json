@@ -1,14 +1,15 @@
 {
   "name": "dashboardpro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dynamic DashBoard for your last execution repor. Check ReadMe for Best usecase.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yusuf Muhammed",
   "license": "ISC",
+  "repository": "myusufcse/DashBoardPro",
   "dependencies": {
     "@google-cloud/storage": "^5.3.0",
     "fs": "0.0.1-security",
