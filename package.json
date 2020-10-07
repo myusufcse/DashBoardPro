@@ -6,7 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+		"dashboard",
+		"dashboardpro",
+		"dynamic result",
+		"cucumber",
+		"bdd",
+		"junit",
+		"maven",
+    "unittest",
+    "espresso",
+    "ios",
+    "android"
+	],
   "author": "Yusuf Muhammed",
   "license": "ISC",
   "repository": "myusufcse/DashBoardPro",
