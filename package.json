@@ -9,24 +9,22 @@
   "keywords": [
     "dashboard",
     "dashboardpro",
-    "dynamic result",
-    "cucumber",
-    "bdd",
-    "junit",
-    "maven",
-    "unittest",
-    "espresso",
-    "ios",
-    "android"
+    "dynamic result dashboard",
+    "cucumber dashboard",
+    "bdd dashboard",
+    "junit dashboard",
+    "maven test dashboard",
+    "unittest dashboard",
+    "espresso dashboard",
+    "ios dashboard",
+    "android dashboard"
   ],
   "author": "Yusuf Muhammed",
   "license": "ISC",
   "repository": "myusufcse/DashBoardPro",
   "dependencies": {
-    "@google-cloud/storage": "^5.3.0",
     "fs": "0.0.1-security",
     "properties-reader": "^2.1.1",
-    "xml2js": "^0.4.23",
     "xml2json": "^0.12.0"
   }
 }
