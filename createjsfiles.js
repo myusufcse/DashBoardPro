@@ -139,7 +139,7 @@ module.exports = function createjsfiles(result) {
 
     var details = props.line0 + '","' + props.line1 + '","' + props.line2 + '","' + props.line3 + '","' + props.line4;
 
-    fs.writeFileSync('./jsfiles/squadDetails.js', 'var squadDetails = [' + details + '];', function (err) {
+    fs.writeFileSync('./jsfiles/squadDetails.js', 'var squadDetails = ["' + details + '"];', function (err) {
       if (err) {
         console.log(err);
       } else {
@@ -210,6 +210,7 @@ async function createfiles() {
         trendReport = require('../../jsfiles/lastTenHistory');
       }
     });
+    trendReport = require('../../jsfiles/lastTenHistory');
 
     var history = [];
     trendReport.forEach(report => {
