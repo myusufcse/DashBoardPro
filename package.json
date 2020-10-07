@@ -1,6 +1,6 @@
 {
   "name": "dashboardpro",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dynamic DashBoard for your last execution repor. Check ReadMe for Best usecase.",
   "main": "index.js",
   "scripts": {
