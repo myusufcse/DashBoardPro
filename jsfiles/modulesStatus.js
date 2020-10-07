@@ -1,0 +1,1 @@
+var modulesStatus =  [{"moduleName":"com","passed":0,"failed":0,"skipped":1,"total":1}];

@@ -1,0 +1,1 @@
+var lastTenHistory = []; module.exports = lastTenHistory; module.exports = lastTenHistory;

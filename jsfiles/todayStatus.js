@@ -1,0 +1,1 @@
+var todayStatus = {"passPercentage":null,"totalPass":0,"totalFail":0,"totalSkip":1,"total":1,"totalHours":"","executedDate":"2020-10-07T17:28:49"};

@@ -1,6 +1,7 @@
 const parser = require('xml2json');
 const fs = require('fs');
 const path = require('path');
+const propertiesReader = require('properties-reader');
 var totalPass = 0;
 var totalFail = 0;
 var totalSkip = 0;
@@ -34,7 +35,9 @@ async function parseXmlFilesIntoJS(result) {
             resultJson = json.testsuite;
             if (parseInt(resultJson.tests) == 1) {
               var test = resultJson.testcase;
-              test["classname"] = test["classname"].replace(/com.bnppf.easybanking./g, '');
+              var clsarr = test["classname"].split('.');
+              var len = clsarr.length;
+              test["classname"] = clsarr[len - 2] + "." + clsarr[len - 1];
               if (test.failure) {
                 fail++;
                 test["status"] = "FAILED";
@@ -55,16 +58,18 @@ async function parseXmlFilesIntoJS(result) {
 
             } else {
               resultJson.testcase.forEach(function (test) {
-                test["classname"] = test["classname"].replace(/com.bnppf.easybanking./g, '');
+                var clsarr = test["classname"].split('.');
+                var len = clsarr.length;
+                test["classname"] = clsarr[len - 2] + "." + clsarr[len - 1];
                 if (test.failure) {
                   fail++;
                   test["status"] = "FAILED";
-                  test["log"] = test.failure.$t;
+                  test["log"] = JSON.stringify(test.failure);
                   delete test["failure"];
                 } else if (test.skipped) {
                   skip++;
                   test["status"] = "SKIPPED";
-                  test["log"] = test.skipped.$t;
+                  test["log"] = JSON.stringify(test.skipped);
                   delete test["skipped"];
                 } else {
                   pass++;
@@ -82,9 +87,9 @@ async function parseXmlFilesIntoJS(result) {
             mjson["failed"] = fail;
             mjson["skipped"] = skip;
             mjson["total"] = parseInt(resultJson.tests);
-            mjson["executedOn"] = resultJson.timestamp;
-            executedDate = resultJson.timestamp;
-            console.log(mjson);
+            mjson["executedOn"] = isRealValue(resultJson.timestamp)? resultJson.timestamp : new Date().toISOString().substr(0,19);
+            executedDate = mjson["executedOn"];
+            // console.log(mjson);
             // input for the total cases
             totalPass += pass;
             totalFail += fail;
@@ -93,6 +98,8 @@ async function parseXmlFilesIntoJS(result) {
             totalHours += parseFloat(resultJson.time);
             moduleStatus.push(JSON.stringify(mjson));
             return resolve(true);
+          } else if (file.endsWith(".json")) {
+
           }
         });
       });
@@ -112,17 +119,37 @@ module.exports = function createjsfiles(result) {
         if (err) {
           console.log(err);
         } else {
-          const data = fs.readFileSync('./jsfiles/lastTenHistory.js', 'utf8')
-          console.log("*************",data);
           console.log('created lastTenHistory.js');
         }
       });
     }
+    const prop = null;
+    var props = {};
+    try {
+      prop = propertiesReader('./dashboardpro.properties');
+      props = prop.getAllProperties();
+    }
+    catch(err) {
+      props.line0 = 'Team Details';
+      props.line1 = 'NAME : ANDROID TEAM';
+      props.line2 = 'APP VERSION : 1.1.1';
+      props.line3 = 'ENVIRONMENT : STUB';
+      props.line4 = 'EXECUTED BY : UR NAME';
+    }
+
+    var details = props.line0 + '","' + props.line1 + '","' + props.line2 + '","' + props.line3 + '","' + props.line4;
+
+    fs.writeFileSync('./jsfiles/squadDetails.js', 'var squadDetails = [' + details + '];', function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('created squadDetails.js');
+      }
+    });
   });
 
   parseXmlFilesIntoJS(result).then(() => {
     createfiles().then((result) => {
-      console.log("************", result);
       copyFolderSync("./jsfiles", "./report/jsonFiles/").then(() => {
         console.log('./jsfiles/' + ' was copied to destination ' + './report/jsonFiles/');
       });
@@ -158,7 +185,7 @@ async function createfiles() {
     tempjson["totalHours"] = secondsToHms(totalHours);
     tempjson["executedDate"] = new Date().toISOString().split('.')[0];
 
-    console.log(tempjson);
+    //console.log(tempjson);
     fs.writeFileSync('./jsfiles/todayStatus.js', 'var todayStatus = ' + JSON.stringify(tempjson) + ';', function (err) {
       if (err) {
         console.log(err);
@@ -173,21 +200,28 @@ async function createfiles() {
     trendjson["totalSkip"] = totalSkip;
     trendjson["executedDate"] = new Date().toISOString().split('T')[0];
 
-    var trendReport = require('../../jsfiles/lastTenHistory');
-    console.log("##########",trendReport);
+    var trendReport = null;
+
+    fs.appendFileSync("./jsfiles/lastTenHistory.js", " module.exports = lastTenHistory;", (err) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        trendReport = require('../../jsfiles/lastTenHistory');
+      }
+    });
 
     var history = [];
     trendReport.forEach(report => {
-      console.log("##########",JSON.stringify(report));
       history.push(JSON.stringify(report));
     });
 
     history.push(JSON.stringify(trendjson));
-    if (history.length > 10) {
+    if (history.length > 20) {
       history.shift();
     }
 
-    fs.writeFileSync('./jsfiles/lastTenHistory.js', 'var lastTenHistory = [' + history + ']; module.exports = lastTenHistory;', function (err) {
+    fs.writeFileSync('./jsfiles/lastTenHistory.js', 'var lastTenHistory = [' + history + '];', function (err) {
       if (err) {
         console.log(err);
       } else {
@@ -225,4 +259,9 @@ function secondsToHms(d) {
   var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
   var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
   return hDisplay + mDisplay + sDisplay;
+}
+
+function isRealValue(obj)
+{
+ return obj && obj !== 'null' && obj !== 'undefined';
 }
