@@ -218,7 +218,10 @@ async function createfiles() {
       history.push(JSON.stringify(report));
     });
 
-    history.push(JSON.stringify(trendjson));
+    if(!history.includes(JSON.stringify(trendjson))) {
+      history.push(JSON.stringify(trendjson));
+    }
+
     if (history.length > 20) {
       history.shift();
     }
