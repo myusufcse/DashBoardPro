@@ -574,8 +574,16 @@ a.logo:focus {
     outline: none;
 }
 
-a.logo span {
-    color: #4ECDC4;
+span.dash {
+    color: #69b42d;
+}
+
+span.board {
+    color: #ff5757;
+}
+
+span.pro {
+    color: #ffd300;
 }
 
 /* Dash Side */
@@ -854,6 +862,10 @@ PANELS CONFIGURATIONS
 
 .fa-meh-o {
     color: #e9c46a;
+}
+
+.fa-heart {
+    color:#F74933;
 }
 
 .overall-status {
@@ -1190,7 +1202,7 @@ label {
 /*footer*/
 
 .site-footer {
-    background: #4ECDC4;
+    background: #212529;
     color: #fff;
     padding: 15px 0;
 }
@@ -1206,7 +1218,7 @@ label {
 
 .go-top {
     margin-right: 1%;
-    margin-top: -25px;
+    margin-top: -20px;
     float: right;
     background: rgba(255, 255, 255, .5);
     width: 20px;
