@@ -1204,7 +1204,7 @@ label {
 .site-footer {
     background: #212529;
     color: #fff;
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 .site-footer p {
@@ -1216,9 +1216,15 @@ label {
     color: #fff;
 }
 
+.wht,
+.wht:hover,
+.wht:focus {
+    color: #fff;
+}
+
 .go-top {
-    margin-right: 1%;
-    margin-top: -20px;
+    margin-right: 2%;
+    margin-top: -30px;
     float: right;
     background: rgba(255, 255, 255, .5);
     width: 20px;
