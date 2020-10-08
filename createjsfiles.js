@@ -123,18 +123,19 @@ module.exports = function createjsfiles(result) {
         }
       });
     }
-    const prop = null;
+    var prop = null;
     var props = {};
     try {
       prop = propertiesReader('./dashboardpro.properties');
       props = prop.getAllProperties();
     }
     catch(err) {
+      fs.copyFileSync(__dirname + "/dashboardpro.properties", "./dashboardpro.properties");
       props.line0 = 'Team Details';
-      props.line1 = 'NAME : ANDROID TEAM';
+      props.line1 = 'NAME : YOUR TEAM';
       props.line2 = 'APP VERSION : 1.1.1';
-      props.line3 = 'ENVIRONMENT : STUB';
-      props.line4 = 'EXECUTED BY : UR NAME';
+      props.line3 = 'ENVIRONMENT : QA';
+      props.line4 = 'EXECUTED BY : YOUR NAME';
     }
 
     var details = props.line0 + '","' + props.line1 + '","' + props.line2 + '","' + props.line3 + '","' + props.line4;
