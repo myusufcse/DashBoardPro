@@ -31,7 +31,7 @@
  
 ## Screenshots
 
-<img src="./screenshot-I.png" alt="DASHBOARDPRO">
+<img src="./Screenshot-I.png" alt="Screenshot-I">
 
 ## Installation
 
