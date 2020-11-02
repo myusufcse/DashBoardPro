@@ -26,8 +26,7 @@
 
 
 ## DashBoardPro
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides a powerfull real-time reporting dashboard for automated test results, visualize your last execution with cool charts and show What Went Right and What Went Wrong. 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ease of integration with any existing automated process made simple to use.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides a powerful real-time reporting dashboard for automated test results, visualize your last execution with cool charts and show What Went Right and What Went Wrong. Ease of integration with any existing automated process made simple to use.
  
 ## Screenshots
 
