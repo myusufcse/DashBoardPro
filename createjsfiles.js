@@ -114,15 +114,6 @@ module.exports = function createjsfiles(result) {
     if (!fs.existsSync("./jsfiles")) {
       fs.mkdirSync("./jsfiles");
     }
-    if (!fs.existsSync('./jsfiles/lastTenHistory.js')) {
-      fs.writeFileSync('./jsfiles/lastTenHistory.js', 'var lastTenHistory = []; module.exports = lastTenHistory;', function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('created lastTenHistory.js');
-        }
-      });
-    }
     var prop = null;
     var props = {};
     try {
@@ -195,44 +186,6 @@ async function createfiles() {
       }
     });
 
-    var trendjson = {};
-    trendjson["totalPass"] = totalPass;
-    trendjson["totalFail"] = totalFail;
-    trendjson["totalSkip"] = totalSkip;
-    trendjson["executedDate"] = new Date().toISOString().split('T')[0];
-
-    var trendReport = null;
-
-    fs.appendFileSync("./jsfiles/lastTenHistory.js", " module.exports = lastTenHistory;", (err) => {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        trendReport = require('../../jsfiles/lastTenHistory');
-      }
-    });
-    trendReport = require('../../jsfiles/lastTenHistory');
-
-    var history = [];
-    trendReport.forEach(report => {
-      history.push(JSON.stringify(report));
-    });
-
-    if(!history.includes(JSON.stringify(trendjson))) {
-      history.push(JSON.stringify(trendjson));
-    }
-
-    if (history.length > 20) {
-      history.shift();
-    }
-
-    fs.writeFileSync('./jsfiles/lastTenHistory.js', 'var lastTenHistory = [' + history + '];', function (err) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('updated lastTenHistory.js');
-      }
-    });
     return resolve(true);
   });
 }

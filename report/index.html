@@ -120,18 +120,18 @@
                     <div class="col-lg-5 col-md-5 col-sm-5">
                         <canvas id="featureBarchart"></canvas>
                     </div>
-                    <script type="text/javascript" src="jsonFiles/lastTenHistory.js"></script>
+                    <script type="text/javascript" src="jsonFiles/modulesStatus.js"></script>
                     <script>
-                        var jsonfile = lastTenHistory;
+                        var jsonfile = modulesStatus;
 
                         var exeucted_date = jsonfile.map(function (e) {
-                            return e.executedDate;
+                            return e.moduleName;
                         });
                         var passed_date = jsonfile.map(function (e) {
-                            return e.totalPass;
+                            return e.passed;
                         });
                         var failed_data = jsonfile.map(function (e) {
-                            return e.totalFail;
+                            return e.failed;
                         });
 
                         var barChartData = {
