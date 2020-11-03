@@ -4,6 +4,7 @@ function createtable(moduleName) {
       }
       $(document).ready(function () {
         var table = $('#example').DataTable({
+          order: [[ 3, "asc" ]],
           lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
           data: dataSet[moduleName],
           columns: [
