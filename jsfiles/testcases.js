@@ -1,1 +1,0 @@
-var dataSet = {"com":[{"name":"com.comarch.pv.tests.backoffice.customer.PVEditCustomerTest","classname":"com.comarch.pv.tests.backoffice.customer.PVEditCustomerTest","time":"0","status":"SKIPPED"}]};
