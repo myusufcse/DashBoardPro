@@ -3,3 +3,4 @@ package-lock.json
 .DS_Store
 result/*
 jsfiles/*
+CHANGELOG.md
