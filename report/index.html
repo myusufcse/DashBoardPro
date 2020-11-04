@@ -219,6 +219,16 @@
 
                     </div>
                 </div>
+
+                <div class="row mild-gray-bg dontdisplay" id="noresultfound">
+                    <div id="module-container" class="col-lg-12 no-pl no-pr pb">
+                        <h2><i class="fa fa-meh-o board"></i>OOPS!!!</h2>
+                        <br>
+                        <h3>TEST RESULT NOT FOUND IN RESULT FOLDER TO GENERATE REPORT <i
+                                class="fa fa-pie-chart dash"></i> <i class="fa fa-bar-chart board"></i> <i
+                                class="fa fa-line-chart pro"></i></h3>
+                    </div>
+                </div>
             </section>
         </section>
         <!--main content end-->
@@ -246,7 +256,12 @@
     <script>
         document.onreadystatechange = () => {
             if (document.readyState === 'complete') {
-                var modules = modulesStatus;
+                try {
+                    var modules = modulesStatus;
+                } catch (e) {
+                    noresultfound.setAttribute("class", "row mild-gray-bg plsdisplay");
+                    throw 'TEST RESULT NOT FOUND IN RESULT FOLDER TO GENERATE REPORT!'
+                }
                 // console.log(modules);
                 modules.forEach(module => {
                     var pass = module.passed;

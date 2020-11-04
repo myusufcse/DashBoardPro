@@ -574,16 +574,16 @@ a.logo:focus {
     outline: none;
 }
 
-span.dash {
-    color: #69b42d;
+.dash {
+    color: #69b42d !important;
 }
 
-span.board {
-    color: #ff5757;
+.board {
+    color: #ff5757 !important;
 }
 
-span.pro {
-    color: #ffd300;
+.pro {
+    color: #ffd300 !important;
 }
 
 /* Dash Side */
@@ -908,6 +908,14 @@ PANELS CONFIGURATIONS
 
 .squad-panel p {
     color: white;
+}
+
+.dontdisplay {
+    display: none;
+}
+
+.plsdisplay {
+    display: block;
 }
 
 
