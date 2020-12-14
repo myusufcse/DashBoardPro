@@ -1,3 +1,9 @@
+## **[DashBoardPro-v1.1](https://www.npmjs.com/package/dashboardpro/v/1.1)**
+
+- Added auto refresh
+- print report wuth color chart
+- UI enhancements
+
 ## **[DashBoardPro-v1.0.9](https://www.npmjs.com/package/dashboardpro/v/1.0.9)**
 
 - Added the modulewise chart in top
