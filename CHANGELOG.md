@@ -1,4 +1,4 @@
-## **[DashBoardPro-v1.1](https://www.npmjs.com/package/dashboardpro/v/1.1)**
+## **[DashBoardPro-v1.1.0](https://www.npmjs.com/package/dashboardpro/v/1.1.0)**
 
 - Added auto refresh
 - print report wuth color chart
