@@ -4,16 +4,20 @@
 
 /* BASIC THEME CONFIGURATION */
 
-body {
+@media print {
+    body {
     color: #797979;
     background: #eaeaea;
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size: 14px;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
-table {
+@media print {
+    table {
     color: #0e0c0c;
     background: #eaeaea;
     font-family: 'Ruda', sans-serif;
@@ -21,6 +25,8 @@ table {
     padding: 0px !important;
     margin: 0px !important;
     text-align: left;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 ul li {
@@ -185,7 +191,8 @@ hr {
     border-top: 1px solid #797979;
 }
 
-.pass {
+@media print {
+    .pass {
     border-radius: 30px 30px 30px 5px;
     border-style: solid;
     background: #538c2b99;
@@ -193,6 +200,8 @@ hr {
     color: #fff;
     height: 186px;
     min-height: 186px;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 .pass h3 {
@@ -204,15 +213,22 @@ hr {
     margin: 8px !important;
 }
 
-.pass-stripe {
+@media print {
+    .pass-stripe {
     background: repeating-linear-gradient( -55deg, #5d9634, #5d9634 10px, #538c2b 10px, #538c2b 20px ) !important;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
-.fail-stripe {
+@media print {
+    .fail-stripe {
     background: repeating-linear-gradient( -55deg, #e67f65, #e67f65 10px, #e77051 10px, #e77051 20px ) !important;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
-.fail {
+@media print {
+    .fail {
     border-radius: 30px 30px 30px 5px;
     border-style: solid;
     background: #e7705187;
@@ -220,6 +236,8 @@ hr {
     color: #fff;
     height: 186px;
     min-height: 186px;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 .fail h3 {
@@ -231,13 +249,16 @@ hr {
     margin: 8px !important;
 }
 
-.average {
+@media print {
+    .average {
     border-radius: 30px 30px 30px 5px;
     border-style: solid;
     background: #e7705187;
     border-color: #026d77;
     color: #fff;
     height: 186px;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 .average h3 {
@@ -823,10 +844,13 @@ PANELS CONFIGURATIONS
 
 /*Overall Status Panel*/
 
-.overall-header {
+@media print {
+    .overall-header {
     background: #00000057;
     padding: 3px;
     margin-bottom: 5px;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 .overall-status h3 {
@@ -868,25 +892,36 @@ PANELS CONFIGURATIONS
     color:#F74933;
 }
 
-.overall-status {
+@media print {
+    .overall-status {
     background: #03c39b;
     background: radial-gradient(circle, rgba(96,199,177,0.927608543417367) 0%, rgba(3,195,155,1) 100%);
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 /*Green Panel*/
 
-.squad-panel {
+
+@media print {
+    .squad-panel {
     text-align: center;
     background: #3a3a3a;
     background-image: url("../img/team_details.png");
     background-repeat: no-repeat;
     background-size: cover;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
-.squad-panel .squad-header {
+
+@media print {
+    .squad-panel .squad-header {
     background: #4d4d4d;
     padding: 3px;
     margin-bottom: 15px;
+    -webkit-print-color-adjust: exact;
+    }
 }
 
 .squad-panel .squad-header h3 {
