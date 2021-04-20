@@ -53,7 +53,7 @@ async function parseXmlFilesIntoJS(result) {
                 test["status"] = "PASSED";
                 test["log"] = "";
               }
-              module = resultJson.testcase.classname.split('.')[0];
+              module = path.basename(file, '.xml');
               dataSet.push("\"" + module + "\":[" + JSON.stringify(resultJson.testcase) + "]");
 
             } else {
@@ -77,7 +77,7 @@ async function parseXmlFilesIntoJS(result) {
                   test["log"] = "";
                 }
               });
-              module = resultJson.testcase[0].classname.split('.')[0];
+              module = path.basename(file, '.xml');
               dataSet.push("\"" + module + "\":" + JSON.stringify(resultJson.testcase));
             }
 
